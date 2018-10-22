@@ -7,7 +7,7 @@ class GMC(){
     public $b=52;
     public function prueba(){
             if ($this->a){
-        return $this->b;
+         return $this->b;
         }
     }
 }
