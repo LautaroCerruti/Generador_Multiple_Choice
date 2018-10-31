@@ -5,7 +5,10 @@
     },
     "autoload": {
         "psr-4": {
-            "TDD\\": "src"
+            "Generador_Multiple_Choice\\": "src"
         }
+    },
+    "require": {
+        "symfony/yaml": "^4.1"
     }
 }

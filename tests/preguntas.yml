@@ -1,0 +1,221 @@
+preguntas:
+
+  - descripcion: El término pixel hace referencia a
+    respuestas_correctas:
+      - La unidad mínima de información de una imagen.
+    respuestas_incorrectas:
+      - La longitud de la diagonal de una imagen en pulgadas.
+      - La cantidad de puntos por pulgada.
+      - La cantidad de colores de un punto.
+    ocultar_opcion_todas_las_anteriores: true
+
+  - descripcion: Para las imágenes vectoriales se cumple que
+    respuestas_correctas: []
+    respuestas_incorrectas:
+      - Poseen un número fijo de píxeles.
+      - Son creadas por los escaners y las cámaras digitales.
+      - Pueden perder detalle y verse pixeladas cuando se amplían.
+      - A cada píxel se le asigna una ubicación y un valor de color específico.
+
+  - descripcion: Para las imágenes de mapas de bits se cumple que
+    respuestas_correctas:
+      - A cada píxel se le asigna una ubicación y un valor de color específico.
+      - Constan de un número fijo de píxeles.
+      - Son creadas por los escaners y las cámaras digitales.
+      - Pueden perder detalle y verse pixeladas cuando se amplían.
+    respuestas_incorrectas: []
+
+  - descripcion: Las extensiones de archivo que pertenecen al grupo de mapas de bits son
+    respuestas_correctas:
+      - "JPG, BMP, PNG, GIF"
+    respuestas_incorrectas:
+      - Solo PNG
+      - Solo JPG
+      - Solo BMP
+      - Solo GIF
+      - "JPG, BMP, PNG, GIF y SVG"
+
+
+  - descripcion: ¿Cuál de las siguientes afirmaciones es incorrecta?
+    respuestas_correctas:
+      - "JPG: Permite imágenes animadas"
+    respuestas_incorrectas:
+      - "PNG: Permite transparencia"
+      - "GIF: Soporta transparencia pero no translucidez."
+      - "BMP: No soporta transparencia."
+      - "SVG: Permite transparencias."
+
+
+  - descripcion: El formato BMP
+    respuestas_correctas: []
+    respuestas_incorrectas:
+      - Ha sido diseñado específicamente para comprimir imágenes digitales.
+      - Puede implicar perder algo de la calidad de la imagen si se define cierto factor de compresión.
+      - Siempre tienen una profundidad de color de 1 bit.
+      - Permite transparencias.
+      - Reduce el tamaño de archivo porque elimina la información del color.
+
+
+  - descripcion: En las imágenes del tipo vectorial
+    respuestas_correctas:
+      - La calidad de la imagen no varía al modificar el tamaño de la misma.
+    respuestas_incorrectas:
+      - Se reducen los colores de la imagen a un máximo de 256.
+      - Se reduce el tamaño del archivo porque elimina la información del color.
+      - Cada píxel tiene un valor de brillo comprendido entre 0 (negro) y 255 (blanco).
+
+  - descripcion: El formato PNG es superior al BMP porque
+    respuestas_correctas:
+      - Permite transparencias.
+      - Su compresión no reduce la calidad de imagen.
+      - Se puede usar en la web.
+      - Permite archivos más pequeños con la misma calidad.
+    respuestas_incorrectas: []
+
+  - descripcion: ¿Para una imagen de 500 x 500 pixeles con 180 colores diferentes guarado en distintos formatos, que archivo es el más espacio en disco ocupa?
+    respuestas_correctas:
+      - 'imagen.bmp'
+    respuestas_incorrectas:
+      - 'imagen.jpg'
+      - 'imagen.gif'
+      - 'imagen.png'
+    ocultar_opcion_todas_las_anteriores: true
+    ocultas_opcion_ninguna_de_las_anteriores: true
+
+  - descripcion: Los archivos del tipo GIF
+    respuestas_correctas:
+      - 'Permiten definir un color como transparente'
+    respuestas_incorrectas:
+      - 'Permiten translucidez'
+      - 'Permiten mostrar imagenes en color real'
+      - 'Son un formato vectorial'
+
+
+  - descripcion: El audio de un CD de música posee las siguientes características.
+    respuestas_correctas:
+      - '44.1kHz, 16 bits y 2 canales'
+    respuestas_incorrectas:
+      - '44.1Hz, 16 bits y 2 canales'
+      - '44.1kHz, 8 bits y 2 canales'
+      - '44.1kHz, 16 bits y 1 canal'
+    ocultar_opcion_todas_las_anteriores: true
+
+  - descripcion: Cuando hablamos de frecuencia de muestreo en el audio digital.
+    respuestas_correctas:
+      - 'Se recomienda realizar el doble de muestras que la frecuencia máxima.'
+    respuestas_incorrectas:
+      - 'Se recomienda realizar la mitad de muestras que la frecuencia máxima.'
+      - 'Se recomienda realizar la misma cantidad de muestras que la frecuencia máxima.'
+    ocultar_opcion_todas_las_anteriores: true
+
+  - descripcion: ¿Cuál de los siguientes parámetros no influye en la calidad del audio digital comprimido?
+    respuestas_correctas: []
+    respuestas_incorrectas:
+      - 'Frecuencia de muestreo'
+      - 'Resolución o profundidad de bit.'
+      - 'Cantidad de canales.'
+      - 'Bitrate.'
+    ocultar_opcion_todas_las_anteriores: true
+    texto_ninguna_de_las_anteriores: 'Niguno de los anteriores.'
+
+  - descripcion: ¿Cuál de las siguientes formatos de audio permite más compresión manteniendo la calidad de audio?
+    respuestas_correctas:
+      - "OGG"
+    respuestas_incorrectas:
+      - "MP3"
+      - "FLAC"
+      - "WAV"
+    ocultar_opcion_todas_las_anteriores: true
+    ocultas_opcion_ninguna_de_las_anteriores: true
+
+  - descripcion: Si la frecuencia de muestreo es menor a la que propone Nyquist en su teorema sucede que
+    respuestas_correctas:
+      - 'No es posible recuperar la señal original.'
+    respuestas_incorrectas:
+      - 'Nada, nyquist justamente indica no se debe superar el limte que él propone.'
+      - 'La señal de audio tendrá espacios de silencio absoluto.'
+    ocultar_opcion_todas_las_anteriores: true
+
+  - descripcion: 1 minuto de audio sin comprimir de un CD de música ocupa aproximadamente.
+    respuestas_correctas:
+      - '10MB'
+    respuestas_incorrectas:
+      - '35MB'
+      - '1MB'
+      - '100MB'
+    ocultar_opcion_todas_las_anteriores: true
+
+  - descripcion: ¿Cuál de las siguientes formatos de audio permite audio comprimido sin perdidas?
+    respuestas_correctas:
+      - "FLAC"
+    respuestas_incorrectas:
+      - "MP3"
+      - "WAV"
+      - "OGG"
+    ocultar_opcion_todas_las_anteriores: true
+
+  - descripcion: ¿Cuál de las siguientes formatos posee patentes legales?
+    respuestas_correctas:
+      - "MP3"
+    respuestas_incorrectas:
+      - "FLAC"
+      - "OGG"
+    ocultas_opcion_ninguna_de_las_anteriores: true
+
+  - descripcion: El audio estereo implica
+    respuestas_correctas:
+      - "Dos pistas de audio"
+    respuestas_incorrectas:
+      - "Una pista de audio"
+      - "Tres pistas de audio"
+      - "Cuatro pistas de audio"
+    ocultar_opcion_todas_las_anteriores: true
+
+
+  - descripcion: Los archivos de tipo MIDI oscilan en tamaños de
+    respuestas_correctas:
+      - "Entre los 4KB y los 200KB aproximadamente."
+    respuestas_incorrectas:
+      - "Entre los 4MB y los 20MB aproximadamente."
+      - "Entre los 4GB y los 20GB aproximadamente."
+    ocultar_opcion_todas_las_anteriores: true
+
+  - descripcion: Fourier afirma que cualquier onda.
+    respuestas_correctas:
+      - "Puede construirse como una suma de senos."
+    respuestas_incorrectas:
+      - "Tiene el doble de la frecuencia máxima que puede escuchar un humano."
+      - "Tienen un ancho de banda finito."
+
+  - descripcion: Cuando un pixel de una imágen tiene 32 bits significa.
+    respuestas_correctas:
+      - "Que almacena información de transparencia."
+    respuestas_incorrectas:
+      - "Que solo son colores de una gama de grises."
+      - "Que no tiene transparencia, solo valores de RGB."
+
+  - descripcion: El Aliasing en el audio digital
+    respuestas_correctas:
+      - "Es algo que se busca eliminar."
+    respuestas_incorrectas:
+      - "Es algo que se espera mantener."
+      - "Mide la calidad del audio digital, mientras más, mejor."
+      - "Mide la calidad del audio analógico, mientras más, mejor."
+    ocultar_opcion_todas_las_anteriores: true
+
+  - descripcion: Cuando hablamos de 8, 16, 24 bits en audio digital.
+    respuestas_correctas:
+      - "Nos referimos a la cantidad de niveles en el eje de la amplitud."
+    respuestas_incorrectas:
+      - "Nos referimos a la frecuencia de muestreo."
+      - "Nos referimos al espacio que ocupa un segundo de audio."
+    ocultar_opcion_todas_las_anteriores: true
+
+  - descripcion: El ruido blanco, al amplificar o regenerar una señal de audio
+    respuestas_correctas:
+      - "Afecta de mayor manera a las señales analógicas"
+    respuestas_incorrectas:
+      - "Afecta de mayor manera a las señales digitales"
+      - "Es un concepto de imágenes digitales, no aplica al audio."
+      - "Afecta a ambas señales por igual."
+    ocultar_opcion_todas_las_anteriores: true
