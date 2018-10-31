@@ -14,8 +14,7 @@ class Examen
     {
         $preguntas = Yaml::parse(file_get_contents($nombreArchivo));
         foreach($preguntas["preguntas"] as $pregunta){
-            //$this->preguntas[]=new Pregunta($pregunta);
-            array_push($this->preguntas,$pregunta);        
+            array_push($this->preguntas,new Pregunta($pregunta));        
         }
         $this->cantPreguntas = count($this->preguntas);
         return TRUE;
