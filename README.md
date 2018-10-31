@@ -4,4 +4,6 @@
 
 [![Build Status](https://travis-ci.org/LautaroCerruti/Generador_Multiple_Choice.svg?branch=master)](https://travis-ci.org/LautaroCerruti/Generador_Multiple_Choice)
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/LautaroCerruti/Generador_Multiple_Choice/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/LautaroCerruti/Generador_Multiple_Choice/?branch=master)
+
 Generador automatico de examenes multiple choice.
