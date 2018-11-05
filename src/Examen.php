@@ -13,11 +13,11 @@ class Examen
     public function generarExamen($nombreArchivo)
     {
         $preguntas = Yaml::parse(file_get_contents($nombreArchivo));
-        foreach($preguntas["preguntas"] as $pregunta){
+        foreach ($preguntas["preguntas"] as $pregunta){
             array_push($this->preguntas,new Pregunta($pregunta));        
         }
         $this->cantPreguntas = count($this->preguntas);
-        return TRUE;
+        return true;
     }
 
     public function preguntasDisponibles(){

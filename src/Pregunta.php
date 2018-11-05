@@ -9,8 +9,9 @@ class Pregunta
     protected $incorrectas=array();
     protected $ocultaranteriores = null;
     protected $ocultarningunaanteriores = null;
+    protected $textoningunaanteriores = null;
 
-    function __CONSTRUCT($pregunta) {
+    public function __CONSTRUCT($pregunta) {
         $this->descripcion=$pregunta["descripcion"];
         foreach ($pregunta["respuestas_correctas"] as $respuestacorrecta){
             array_push($this->correctas,$respuestacorrecta);
@@ -27,6 +28,11 @@ class Pregunta
             $this->ocultarningunaanteriores=true;
         } else {
             $this->ocultarningunaanteriores=false;
+        }
+        if (isset($pregunta["texto_ninguna_de_las_anteriores"])){
+            $this->textoningunaanteriores=$pregunta["texto_ninguna_de_las_anteriores"];
+        } else {
+            $this->textoningunaanteriores=null;
         }
     }
 }
