@@ -6,4 +6,6 @@
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/LautaroCerruti/Generador_Multiple_Choice/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/LautaroCerruti/Generador_Multiple_Choice/?branch=master)
 
+Participantes: Cerruti Lautaro, Spoletini Bruno
+
 Generador automatico de examenes multiple choice.
