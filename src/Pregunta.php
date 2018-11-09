@@ -6,16 +6,18 @@ class Pregunta
 {
     protected $descripcion;
     protected $correctas=array();
+	protected $cantcorrectas;
     protected $incorrectas=array();
     protected $ocultaranteriores = null;
     protected $ocultarningunaanteriores = null;
     protected $textoningunaanteriores = null;
-
+	
     public function __CONSTRUCT($pregunta) {
         $this->descripcion=$pregunta["descripcion"];
         foreach ($pregunta["respuestas_correctas"] as $respuestacorrecta){
             array_push($this->correctas,$respuestacorrecta);
         }
+	$this->cantcorrectas = count($this->correctas);
         foreach ($pregunta["respuestas_incorrectas"] as $respuestaincorrecta){
             array_push($this->incorrectas,$respuestaincorrecta);
         }
@@ -35,4 +37,22 @@ class Pregunta
             $this->textoningunaanteriores=null;
         }
     }
+
+	public function obtenerDescripcion(){
+		return $this->descripcion;
+	}
+	protected function crearRespuestas(){
+		$iterador=0;
+		$opciones=array();
+		foreach($this->correctas as $opcion){
+			$opciones[$iterador] = $opcion;
+			$iterador++;
+		}
+		foreach($this->incorrectas as $opcion){
+			$opciones[$iterador] = $opcion;
+			$iterador++;
+		}
+		shuffle($opciones);
+		
+	}
 }
