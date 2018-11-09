@@ -42,7 +42,8 @@ class Pregunta
 		return $this->descripcion;
 	}
 	protected function crearRespuestas(){
-		$iterador=0;
+        $iterador=0;
+        $iterador2=0;
 		$opciones=array();
 		foreach($this->correctas as $opcion){
 			$opciones[$iterador] = $opcion;
@@ -50,9 +51,21 @@ class Pregunta
 		}
 		foreach($this->incorrectas as $opcion){
 			$opciones[$iterador] = $opcion;
-			$iterador++;
+            $iterador++;
+            $i=0;
+            $numcorrectas=array();
 		}
-		shuffle($opciones);
-		
-	}
+        shuffle($opciones);
+        for($iterador2=0;$iterador2<=$iterador;$iterador2++){ //este for es para encontrar y guardar en un array los num de las opciones correctas
+            for($i;$i<=$iterador;$i++){ //lo hice a las apuradas pq se me termino el tiempo de trabajo, ni idea si anda
+                if($opciones[$iterador2]==$this->correctas[$i]){
+                    $numcorrectas[$x]=$opciones;
+                    $x++;
+                }
+            }
+        }
+    }
+    
+
+
 }
