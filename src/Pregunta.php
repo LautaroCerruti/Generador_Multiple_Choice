@@ -12,7 +12,7 @@ class Pregunta
     protected $ocultarningunaanteriores = null;
     protected $textoningunaanteriores = null;
 	
-    public function __CONSTRUCT($pregunta) {
+    public function __construct($pregunta) {
         $this->descripcion=$pregunta["descripcion"];
         foreach ($pregunta["respuestas_correctas"] as $respuestacorrecta){
             array_push($this->correctas,$respuestacorrecta);
