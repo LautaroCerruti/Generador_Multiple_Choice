@@ -63,7 +63,7 @@ class Pregunta
         return $this->Opciones;
     }
 
-    protected doscorrectas($iterador, $opciones)
+    protected function doscorrectas($iterador, $opciones)
     {
         if ($this->cantcorrectas == 2) {
             $this->Correcta = $this->opcionDoble($iterador, $opciones, $this->correctas);
