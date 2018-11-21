@@ -78,6 +78,19 @@ class Pregunta
         return $opciones;
     }
 
+    protected function noOcultarAnteriores ($iterador, $opciones)
+    {
+        if ($this->ocultaranteriores == false) {
+        $opciones[$iterador] = "Todas las anteriores";
+            if (count($this->incorrectas) == 0) {
+                $this->Correcta = "Todas las anteriores";
+                $this->LetraCorrecta = chr(ord('A') + $iterador);
+            }
+            $iterador++;
+        }
+        return $opciones;
+    }
+
     protected function crearOpciones()
     {
         $iterador = 0;
@@ -95,14 +108,9 @@ class Pregunta
         $opciones = $this->dosCorrectas($iterador, $opciones);
         $iterador = count($opciones);
 
-        if ($this->ocultaranteriores == false) {
-            $opciones[$iterador] = "Todas las anteriores";
-            if (count($this->incorrectas) == 0) {
-                $this->Correcta = "Todas las anteriores";
-                $this->LetraCorrecta = chr(ord('A') + $iterador);
-            }
-            $iterador++;
-        }
+        $opciones = $this->noOcultarAnteriores($iterador, $opciones);
+        $iterador = count($opciones);
+
         if ($this->ocultarningunaanteriores == false) {
             $texto = "Ninguna de las anteriores";
             if ($this->textoningunaanteriores != null) {
