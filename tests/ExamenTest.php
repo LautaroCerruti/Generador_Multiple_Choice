@@ -10,6 +10,6 @@ class ExamenTest extends TestCase
     {
         $nom = "./tests/preguntas.yml";
         $Examen = new Examen($nom);
-        $this->assertEquals($Examen->preguntasDisponibles(),25);
+        $this->assertEquals($Examen->preguntasDisponibles(),26);
     }
 }
