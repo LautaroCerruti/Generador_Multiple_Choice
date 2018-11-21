@@ -63,6 +63,21 @@ class Pregunta
         return $this->Opciones;
     }
 
+    protected doscorrectas($iterador, $opciones)
+    {
+        if ($this->cantcorrectas == 2) {
+            $this->Correcta = $this->opcionDoble($iterador, $opciones, $this->correctas);
+            if (count($this->incorrectas) >= 2) {
+                $opciones[$iterador] = $this->opcionDoble($iterador, $opciones, $this->incorrectas);
+                $iterador++;
+            }
+            $opciones[$iterador] = $this->Correcta;
+            $this->LetraCorrecta = chr(ord('A') + $iterador);
+            $iterador++;
+            return $opciones;
+        }
+    }
+
     protected function crearOpciones()
     {
         $iterador = 0;
@@ -76,16 +91,10 @@ class Pregunta
             $iterador++;
         }
         shuffle($opciones);
-        if ($this->cantcorrectas == 2) {
-            $this->Correcta = $this->opcionDoble($iterador, $opciones, $this->correctas);
-            if (count($this->incorrectas) >= 2) {
-                $opciones[$iterador] = $this->opcionDoble($iterador, $opciones, $this->incorrectas);
-                $iterador++;
-            }
-            $opciones[$iterador] = $this->Correcta;
-            $this->LetraCorrecta = chr(ord('A') + $iterador);
-            $iterador++;
-        }
+
+        $opciones = $this->doscorrectas($iterador, $opciones)
+        $iterador = count($opciones)+1;
+
         if ($this->ocultaranteriores == false) {
             $opciones[$iterador] = "Todas las anteriores";
             if (count($this->incorrectas) == 0) {
