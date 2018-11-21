@@ -74,8 +74,8 @@ class Pregunta
             $opciones[$iterador] = $this->Correcta;
             $this->LetraCorrecta = chr(ord('A') + $iterador);
             $iterador++;
-            return $opciones;
         }
+        return $opciones;
     }
 
     protected function crearOpciones()
@@ -93,7 +93,7 @@ class Pregunta
         shuffle($opciones);
 
         $opciones = $this->doscorrectas($iterador, $opciones);
-        $iterador = count($opciones)+1;
+        $iterador = count($opciones);
 
         if ($this->ocultaranteriores == false) {
             $opciones[$iterador] = "Todas las anteriores";
