@@ -139,6 +139,6 @@ class Pregunta
         }
         $a = chr(ord('A') + $numcorrectas[0]);
         $b = chr(ord('A') + $numcorrectas[1]);
-        return $b . " y " . $a;
+        return $a . " y " . $b;
     }
 }
