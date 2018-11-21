@@ -63,7 +63,7 @@ class Pregunta
         return $this->Opciones;
     }
 
-    protected function doscorrectas($iterador, $opciones)
+    protected function dosCorrectas($iterador, $opciones)
     {
         if ($this->cantcorrectas == 2) {
             $this->Correcta = $this->opcionDoble($iterador, $opciones, $this->correctas);
@@ -92,7 +92,7 @@ class Pregunta
         }
         shuffle($opciones);
 
-        $opciones = $this->doscorrectas($iterador, $opciones);
+        $opciones = $this->dosCorrectas($iterador, $opciones);
         $iterador = count($opciones);
 
         if ($this->ocultaranteriores == false) {
