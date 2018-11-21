@@ -92,7 +92,7 @@ class Pregunta
         }
         shuffle($opciones);
 
-        $opciones = $this->doscorrectas($iterador, $opciones)
+        $opciones = $this->doscorrectas($iterador, $opciones);
         $iterador = count($opciones)+1;
 
         if ($this->ocultaranteriores == false) {
@@ -148,6 +148,6 @@ class Pregunta
         }
         $a = chr(ord('A') + $numcorrectas[0]);
         $b = chr(ord('A') + $numcorrectas[1]);
-        return $a . " y " . $b;
+        return $b . " y " . $a;
     }
 }
