@@ -5,67 +5,140 @@ namespace Generador_Multiple_Choice;
 class Pregunta
 {
     protected $descripcion;
-    protected $correctas=array();
-	protected $cantcorrectas;
-    protected $incorrectas=array();
+    protected $correctas = array();
+    protected $cantcorrectas;
+    protected $incorrectas = array();
     protected $ocultaranteriores = null;
     protected $ocultarningunaanteriores = null;
     protected $textoningunaanteriores = null;
-	
-    public function __construct($pregunta) {
-        $this->descripcion=$pregunta["descripcion"];
-        foreach ($pregunta["respuestas_correctas"] as $respuestacorrecta){
-            array_push($this->correctas,$respuestacorrecta);
+    protected $Correcta = null;
+    protected $LetraCorrecta = null;
+    protected $Opciones = null;
+
+    public function __construct($pregunta)
+    {
+        $this->descripcion = $pregunta["descripcion"];
+        foreach ($pregunta["respuestas_correctas"] as $respuestacorrecta) {
+            array_push($this->correctas, $respuestacorrecta);
         }
-	$this->cantcorrectas = count($this->correctas);
-        foreach ($pregunta["respuestas_incorrectas"] as $respuestaincorrecta){
-            array_push($this->incorrectas,$respuestaincorrecta);
+        $this->cantcorrectas = count($this->correctas);
+        foreach ($pregunta["respuestas_incorrectas"] as $respuestaincorrecta) {
+            array_push($this->incorrectas, $respuestaincorrecta);
         }
-        if (isset($pregunta["ocultar_opcion_todas_las_anteriores"])){
-            $this->ocultaranteriores=true;
+        if (isset($pregunta["ocultar_opcion_todas_las_anteriores"])) {
+            $this->ocultaranteriores = true;
         } else {
-            $this->ocultaranteriores=false;
+            $this->ocultaranteriores = false;
         }
-        if (isset($pregunta["ocultar_opcion_ninguna_de_las_anteriores"])){
-            $this->ocultarningunaanteriores=true;
+        if (isset($pregunta["ocultar_opcion_ninguna_de_las_anteriores"])) {
+            $this->ocultarningunaanteriores = true;
         } else {
-            $this->ocultarningunaanteriores=false;
+            $this->ocultarningunaanteriores = false;
         }
-        if (isset($pregunta["texto_ninguna_de_las_anteriores"])){
-            $this->textoningunaanteriores=$pregunta["texto_ninguna_de_las_anteriores"];
+        if (isset($pregunta["texto_ninguna_de_las_anteriores"])) {
+            $this->textoningunaanteriores = $pregunta["texto_ninguna_de_las_anteriores"];
         } else {
-            $this->textoningunaanteriores=null;
+            $this->textoningunaanteriores = null;
+        }
+        $this->Opciones = $this->crearOpciones();
+    }
+
+    public function obtenerDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    public function obtenerCorrecta()
+    {
+        return $this->Correcta;
+    }
+
+    public function obtenerLetracorrecta()
+    {
+        return $this->LetraCorrecta;
+    }
+
+    public function obtenerOpciones()
+    {
+        return $this->Opciones;
+    }
+
+    protected function crearOpciones()
+    {
+        $iterador = 0;
+        $opciones = array();
+        foreach ($this->correctas as $opcion) {
+            $opciones[$iterador] = $opcion;
+            $iterador++;
+        }
+        foreach ($this->incorrectas as $opcion) {
+            $opciones[$iterador] = $opcion;
+            $iterador++;
+        }
+        shuffle($opciones);
+        if ($this->cantcorrectas == 2) {
+            $this->Correcta = $this->opcionDoble($iterador, $opciones, $this->correctas);
+            if (count($this->incorrectas) >= 2) {
+                $opciones[$iterador] = $this->opcionDoble($iterador, $opciones, $this->incorrectas);
+                $iterador++;
+            }
+            $opciones[$iterador] = $this->Correcta;
+            $this->LetraCorrecta = chr(ord('A') + $iterador);
+            $iterador++;
+        }
+        if ($this->ocultaranteriores == false) {
+            $opciones[$iterador] = "Todas las anteriores";
+            if (count($this->incorrectas) == 0) {
+                $this->Correcta = "Todas las anteriores";
+                $this->LetraCorrecta = chr(ord('A') + $iterador);
+            }
+            $iterador++;
+        }
+        if ($this->ocultarningunaanteriores == false) {
+            $texto = "Ninguna de las anteriores";
+            if ($this->textoningunaanteriores != null) {
+                $texto = $this->textoningunaanteriores;
+            }
+            $opciones[$iterador] = $texto;
+            if ($this->cantcorrectas == 0) {
+                $this->Correcta = $texto;
+                $this->LetraCorrecta = chr(ord('A') + $iterador);
+            }
+            $iterador++;
+        }
+        if($this->cantcorrectas == 1){
+            $this->unaCorrecta($opciones);
+        }
+        return $opciones;
+    }
+
+    protected function unaCorrecta($opciones){
+        $this->Correcta = $this->correctas[0];
+        $numeroCorrecta = 0;
+        foreach($opciones as $auxiliar){
+            if($this->Correcta===$auxiliar){
+                $this->LetraCorrecta = chr(ord('A')+ $numeroCorrecta);
+            }
+            $numeroCorrecta++;
         }
     }
 
-	public function obtenerDescripcion(){
-		return $this->descripcion;
-	}
-	protected function crearRespuestas(){
-        $iterador=0;
-        $iterador2=0;
-		$opciones=array();
-		foreach($this->correctas as $opcion){
-			$opciones[$iterador] = $opcion;
-			$iterador++;
-		}
-		foreach($this->incorrectas as $opcion){
-			$opciones[$iterador] = $opcion;
-            $iterador++;
-            $i=0;
-            $numcorrectas=array();
-		}
-        shuffle($opciones);
-        for($iterador2=0;$iterador2<=$iterador;$iterador2++){ //este for es para encontrar y guardar en un array los num de las opciones correctas
-            for($i;$i<=$iterador;$i++){ //lo hice a las apuradas pq se me termino el tiempo de trabajo, ni idea si anda
-                if($opciones[$iterador2]==$this->correctas[$i]){
-                    $numcorrectas[$x]=$opciones;
+    protected function opcionDoble($cantOpciones, $opciones, $opcionesABuscar)
+    {
+        $i = 0;
+        $x = 0;
+        $iterador2 = 0;
+        $numcorrectas = array();
+        for ($iterador2 = 0; $iterador2 < $cantOpciones; $iterador2++) { //este for es para encontrar y guardar en un array los num de las opciones correctas
+            for ($i = 0; $i < count($opcionesABuscar); $i++) {
+                if ($opciones[$iterador2] === $opcionesABuscar[$i]) {
+                    $numcorrectas[$x]=$iterador2;
                     $x++;
                 }
             }
         }
+        $a = chr(ord('A') + $numcorrectas[0]);
+        $b = chr(ord('A') + $numcorrectas[1]);
+        return $b . " y " . $a;
     }
-    
-
-
 }
