@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class ExamenTest extends TestCase
 {
-    public function testLeerYML()
+    public function testHacerExamen()
     {
         //No va a andar hasta que termine el delegador y genere los examenes
         /*/

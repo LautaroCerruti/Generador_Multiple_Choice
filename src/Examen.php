@@ -14,8 +14,4 @@ class Examen
         //array con las opciones de cada pregunta (foreach)
     }
 
-
-
-
-
 }

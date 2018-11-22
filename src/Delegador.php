@@ -2,6 +2,8 @@
 
 namespace Generador_Multiple_Choice;
 
+use Symfony\Component\Yaml\Yaml;
+
 class Delegador
 {
     protected $cantTemas;
@@ -16,32 +18,33 @@ class Delegador
         }
         $this->cantTemas = $cantTemas;
         $this->cantPreguntas = count($this->preguntas);
-        $listaPreg = $this->divisionTemas($cantTemas);
+        $listaPreg = $this->divisionTemas();
         $listaExamenes = $this->crearExamen($listaPreg);
     }
 
 
-    protected function divisionTemas($cantTemas)
+    protected function divisionTemas()
     {
         $listaPreg = array();
         shuffle($listaPreg);
         if ($this->cantTemas > $this->cantPreguntas){
-            $listaPreg = array_chunk($this->preguntas, $this->cantPreguntas);
+            $listaPreg = $this->array_divide($this->preguntas, $this->cantPreguntas);
             $this->cantTemas = $this->cantPreguntas;
         }
         else{
-        //funcion auxiliar
-        $listaPreg = $this->array_divide($preguntas, $cantTemas);  
+        $listaPreg = $this->array_divide($this->preguntas, $this->cantTemas);
         }
         return $listaPreg;
     }
 
     public function crearExamen($listaPreg)
     {
-        $i = 0;
         $listExamenes = array();
-        for ($i; $i<$this->cantTemas; $i++){
-            $listaExamenes[$i]=new Examen($listaPreg[$i]);
+        /*foreach ($listaPreg as $Preg){
+            $listaExamenes[$i]=new Examen($Preg);
+        }*/
+        for ($i = 0; $i<$this->cantTemas; $i++){
+            $listaExamenes[]=new Examen($listaPreg[$i]);
         }
         return $listaExamenes;
     }
@@ -50,6 +53,11 @@ class Delegador
     public function cantPreguntasDisponibles()
     {
         return $this->cantPreguntas;
+    }
+
+    public function cantTemas()
+    {
+        return $this->cantTemas;
     }
 
     protected function array_divide($array, $segmentCount) {
@@ -64,5 +72,4 @@ class Delegador
         if($dataCount > 0) $outputArray[] = $array;
         return $outputArray;
     }
-
 }
