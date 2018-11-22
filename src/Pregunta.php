@@ -138,7 +138,6 @@ class Pregunta
         $iterador = count($opciones);
 
         $opciones = $this->ocultarNingunaAnteriores($iterador, $opciones);
-        $iterador = count($opciones);
         
         if ($this->cantcorrectas == 1) {
             $this->unaCorrecta($opciones);
@@ -160,9 +159,7 @@ class Pregunta
 
     protected function opcionDoble($cantOpciones, $opciones, $opcionesABuscar)
     {
-        $i = 0;
         $x = 0;
-        $iterador2 = 0;
         $numcorrectas = array();
         $countOpcionesaBuscar = count($opcionesABuscar);
         for ($iterador2 = 0; $iterador2 < $cantOpciones; $iterador2++) { //este for es para encontrar y guardar en un array los num de las opciones correctas
