@@ -66,8 +66,8 @@ class Pregunta
     public function numerarOpciones($opciones)
     {
         $contador = count($opciones)-1;
-        for ($contador; $contador>-1; $contador--){
-            $opciones[$contador] = chr(ord('A') + $contador) . ") " . $opciones[$contador]; 
+        for ($contador; $contador > -1; $contador--) {
+            $opciones[$contador] = chr(ord('A')+$contador).") ".$opciones[$contador]; 
         }
         return $opciones;
     }
@@ -81,19 +81,19 @@ class Pregunta
                 $iterador++;
             }
             $opciones[$iterador] = $this->Correcta;
-            $this->LetraCorrecta = chr(ord('A') + $iterador);
+            $this->LetraCorrecta = chr(ord('A')+$iterador);
             $iterador++;
         }
         return $opciones;
     }
 
-    protected function noOcultarAnteriores ($iterador, $opciones)
+    protected function noOcultarAnteriores($iterador, $opciones)
     {
         if ($this->ocultaranteriores == false) {
         $opciones[$iterador] = "Todas las anteriores";
             if (count($this->incorrectas) == 0) {
                 $this->Correcta = "Todas las anteriores";
-                $this->LetraCorrecta = chr(ord('A') + $iterador);
+                $this->LetraCorrecta = chr(ord('A')+$iterador);
             }
             $iterador++;
         }
@@ -110,7 +110,7 @@ class Pregunta
             $opciones[$iterador] = $texto;
             if ($this->cantcorrectas == 0) {
                 $this->Correcta = $texto;
-                $this->LetraCorrecta = chr(ord('A') + $iterador);
+                $this->LetraCorrecta = chr(ord('A')+$iterador);
             }
             $iterador++;
         }
@@ -140,19 +140,19 @@ class Pregunta
         $opciones = $this->ocultarNingunaAnteriores($iterador, $opciones);
         $iterador = count($opciones);
         
-        if($this->cantcorrectas == 1){
+        if ($this->cantcorrectas == 1) {
             $this->unaCorrecta($opciones);
         }
 
         return $this->numerarOpciones($opciones);
     }
 
-    protected function unaCorrecta($opciones){
+    protected function unaCorrecta($opciones) {
         $this->Correcta = $this->correctas[0];
         $numeroCorrecta = 0;
-        foreach($opciones as $auxiliar){
-            if($this->Correcta===$auxiliar){
-                $this->LetraCorrecta = chr(ord('A')+ $numeroCorrecta);
+        foreach ($opciones as $auxiliar) {
+            if ($this->Correcta === $auxiliar) {
+                $this->LetraCorrecta = chr(ord('A')+$numeroCorrecta);
             }
             $numeroCorrecta++;
         }
@@ -167,13 +167,13 @@ class Pregunta
         for ($iterador2 = 0; $iterador2 < $cantOpciones; $iterador2++) { //este for es para encontrar y guardar en un array los num de las opciones correctas
             for ($i = 0; $i < count($opcionesABuscar); $i++) {
                 if ($opciones[$iterador2] === $opcionesABuscar[$i]) {
-                    $numcorrectas[$x]=$iterador2;
+                    $numcorrectas[$x] = $iterador2;
                     $x++;
                 }
             }
         }
-        $a = chr(ord('A') + $numcorrectas[0]);
-        $b = chr(ord('A') + $numcorrectas[1]);
-        return $b . " y " . $a;
+        $a = chr(ord('A')+$numcorrectas[0]);
+        $b = chr(ord('A')+$numcorrectas[1]);
+        return $b." y ".$a;
     }
 }
