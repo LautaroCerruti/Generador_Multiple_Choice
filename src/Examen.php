@@ -10,7 +10,7 @@ class Examen
 
     public function __construct($preguntas)
     {
-        $this->preguntas=$preguntas;
+        $this->preguntas = $preguntas;
         //array con las opciones de cada pregunta (foreach)
     }
 
