@@ -10,6 +10,6 @@ $cantTemas = $_POST["CantidadTemas"];
 
 $Index = $_POST["Index"];
 
-$delegator = new Delegador('./index para pruebas/preguntas.yml',$cantTemas,$Index);
+$delegator = new Delegador('./index para pruebas/preguntas.yml', $cantTemas, $Index);
 
-header('Location: /Generador_Multiple_Choice/PruebasGeneradas/'. $Index);
+header('Location: /Generador_Multiple_Choice/PruebasGeneradas/'.$Index);
