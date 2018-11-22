@@ -4,7 +4,7 @@ namespace Generador_Multiple_Choice;
 
 class Delegador
 {
-
+    protected $cantTemas;
     protected $cantPreguntas;
     protected $preguntas = array();
 
@@ -14,21 +14,33 @@ class Delegador
         foreach ($preguntas["preguntas"] as $pregunta) {
             array_push($this->preguntas, new Pregunta($pregunta));
         }
+        $this->cantTemas = $cantTemas;
         $this->cantPreguntas = count($this->preguntas);
-
+        $listaPreg = $this->divisionTemas($cantTemas);
+        $listaExamenes = $this->crearExamen($listaPreg);
     }
 
-    public function divisionTemas()
+
+    protected function divisionTemas($cantTemas)
     {
         $listaPreg = array();
         shuffle($listaPreg);
-        $listaPreg = array_chunk($preguntas, $cantTemas);
+        if ($this->cantTemas > $this->cantPreguntas){
+            $listaPreg = array_chunk($this->preguntas, $this->cantPreguntas);
+        }
+        else{
+        //funcion auxiliar
+        $listaPreg = array_chunk($preguntas, $cantTemas);  
+        }
         return $listaPreg;
     }
 
+    protected function repartir($listaPreg)
+    {
+   //     ($this->cantPreguntas/$this->cantTemas)
+    }
 
-
-    public function crearExamen()
+    public function crearExamen($listaPreg)
     {
         $i = 0;
         $listExamenes = array();
