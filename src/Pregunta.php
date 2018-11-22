@@ -89,7 +89,7 @@ class Pregunta
 
     protected function noOcultarAnteriores($iterador, $opciones)
     {
-        if ($this->ocultaranteriores == false) {
+        if ($this->ocultaranteriores === false) {
         $opciones[$iterador] = "Todas las anteriores";
             if (count($this->incorrectas) == 0) {
                 $this->Correcta = "Todas las anteriores";
@@ -102,7 +102,7 @@ class Pregunta
 
     public function ocultarNingunaAnteriores($iterador, $opciones)
     {
-        if ($this->ocultarningunaanteriores == false) {
+        if ($this->ocultarningunaanteriores === false) {
             $texto = "Ninguna de las anteriores";
             if ($this->textoningunaanteriores != null) {
                 $texto = $this->textoningunaanteriores;
@@ -164,8 +164,9 @@ class Pregunta
         $x = 0;
         $iterador2 = 0;
         $numcorrectas = array();
+        $countOpcionesaBuscar = count($opcionesABuscar)
         for ($iterador2 = 0; $iterador2 < $cantOpciones; $iterador2++) { //este for es para encontrar y guardar en un array los num de las opciones correctas
-            for ($i = 0; $i < count($opcionesABuscar); $i++) {
+            for ($i = 0; $i < $countOpcionesaBuscar; $i++) {
                 if ($opciones[$iterador2] === $opcionesABuscar[$i]) {
                     $numcorrectas[$x] = $iterador2;
                     $x++;
