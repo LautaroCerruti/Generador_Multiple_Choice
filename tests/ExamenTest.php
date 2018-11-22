@@ -9,8 +9,7 @@ class ExamenTest extends TestCase
     public function testLeerYML()
     {
         $nom = "./tests/preguntas.yml";
-        $Examen = new Examen();
-        $this->assertTrue($Examen->generarExamen($nom));
-        $this->assertEquals($Examen->preguntasDisponibles(),25);
+        $Examen = new Examen($nom);
+        $this->assertEquals($Examen->preguntasDisponibles(),26);
     }
 }

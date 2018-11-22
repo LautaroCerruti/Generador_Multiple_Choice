@@ -116,7 +116,7 @@ preguntas:
       - 'Cantidad de canales.'
       - 'Bitrate.'
     ocultar_opcion_todas_las_anteriores: true
-    texto_ninguna_de_las_anteriores: 'Niguno de los anteriores.'
+    texto_ninguna_de_las_anteriores: 'Ninguno de los anteriores'
 
   - descripcion: ¿Cuál de las siguientes formatos de audio permite más compresión manteniendo la calidad de audio?
     respuestas_correctas:
@@ -219,3 +219,11 @@ preguntas:
       - "Es un concepto de imágenes digitales, no aplica al audio."
       - "Afecta a ambas señales por igual."
     ocultar_opcion_todas_las_anteriores: true
+
+  - descripcion: Cuales de los siguientes items forman parte de la players choice 3
+    respuestas_correctas:
+      - "Draco Wheels"
+      - "Dissolver Decal"
+    respuestas_incorrectas:
+      - "Takumi"
+      - "Hypnotic"
