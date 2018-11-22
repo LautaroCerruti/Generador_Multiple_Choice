@@ -9,7 +9,7 @@ class DelegadorTest extends TestCase
     public function testDelegador1()
     {
         $nom = "./tests/preguntas.yml";
-        $delega = new Delegador($nom, 5);
+        $delega = new Delegador($nom, 5, "Prueba1");
         $this->AssertEquals($delega->cantPreguntasDisponibles(), 26);
         $this->AssertEquals($delega->cantTemas(), 5);
     }
@@ -17,7 +17,7 @@ class DelegadorTest extends TestCase
     public function testDelegador2()
     {
         $nom = "./tests/preguntas.yml";
-        $delega = new Delegador($nom, 30);
+        $delega = new Delegador($nom, 30, "Prueba2");
         $this->AssertEquals($delega->cantPreguntasDisponibles(), 26);
         $this->AssertEquals($delega->cantTemas(), 26);
     }

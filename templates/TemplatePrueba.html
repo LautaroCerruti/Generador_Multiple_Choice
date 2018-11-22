@@ -47,15 +47,15 @@
   <body>
     <div class="header">
       <strong>Nombre y Apellido _____________________________________________ </strong>
-      <strong>Evaluación número</strong>
-      <strong>TEMA 1</strong>
+      <strong>Evaluación</strong>
+      <strong>TEMA {{ Tema }}</strong>
     </div>
     <div class="questions">
       {% set NumeroPregunta = 1%}
       {% for pregunta in preguntas %}
       {% set opciones = pregunta.obtenerOpciones%}
       <div class='question'>
-        <div class='number'>{{NumeroPregunta}})______</div>
+        <div class='number'>{{NumeroPregunta}})_____</div>
         <div class='description'>{{pregunta.obtenerDescripcion}}</div>
         <div class='options short'>
           {% for opcion in opciones %}

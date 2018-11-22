@@ -8,10 +8,15 @@ class Delegador
 {
     protected $cantTemas;
     protected $cantPreguntas;
+    protected $Index;
     protected $preguntas = array();
 
-    public function __construct($nombreArchivo, $cantTemas)
+    public function __construct($nombreArchivo, $cantTemas, $Index)
     {
+        $this->Index= $Index;
+        if(!file_exists("./PruebasGeneradas/" . $Index)){
+        mkdir ("./PruebasGeneradas/" . $Index, 0777);
+        }
         $preguntas = Yaml::parse(file_get_contents($nombreArchivo));
         foreach ($preguntas["preguntas"] as $pregunta) {
             array_push($this->preguntas, new Pregunta($pregunta));
@@ -42,7 +47,7 @@ class Delegador
         $listaExamenes[$i]=new Examen($Preg);
         }*/
         for ($i = 0; $i < $this->cantTemas; $i++) {
-            $listaExamenes[] = new Examen($listaPreg[$i],($i+1));
+            $listaExamenes[] = new Examen($listaPreg[$i],($i+1),$this->Index);
         }
         return $listaExamenes;
     }
@@ -60,10 +65,6 @@ class Delegador
     protected function arrayDivide($array, $segmentCount)
     {
         $dataCount = count($array);
-        if ($dataCount == 0) {
-            return false;
-        }
-
         $segmentLimit = floor($dataCount / $segmentCount);
         $outputArray = array();
         while ($dataCount > $segmentLimit) {

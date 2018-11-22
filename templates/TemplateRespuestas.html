@@ -47,21 +47,24 @@
   <body>
     <div class="header">
       <strong>Nombre y Apellido _____________________________________________ </strong>
-      <strong>Evaluación número</strong>
-      <strong>TEMA 1</strong>
+      <strong>Evaluación</strong>
+      <strong>TEMA {{ Tema }}</strong>
     </div>
     <div class="questions">
-                        <div class='question'>
-        <div class='number'>1)______</div>
-        <div class='description'>Cuando un pixel de una imágen tiene 32 bits significa.</div>
+      {% set NumeroPregunta = 1%}
+      {% for pregunta in preguntas %}
+      {% set opciones = pregunta.obtenerOpciones%}
+      <div class='question'>
+        <div class='number'>{{NumeroPregunta}})__{{pregunta.obtenerLetraCorrecta}}__</div>
+        <div class='description'>{{pregunta.obtenerDescripcion}}</div>
         <div class='options short'>
-                    <div class='option'>A) Que solo son colores de una gama de grises.</div>
-                    <div class='option'>B) Que no tiene transparencia, solo valores de RGB.</div>
-                    <div class='option'>C) Que almacena información de transparencia.</div>
-                    <div class='option'>D) Todas las anteriores</div>
-                    <div class='option'>E) Ninguna de las anteriores</div>
-                  </div>
+          {% for opcion in opciones %}
+          <div class='option'>{{opcion}}</div>
+          {% endfor%}
+        </div>
       </div>
-                </div>
+      {% set NumeroPregunta = NumeroPregunta + 1%}
+      {% endfor%}
+    </div>
   </body>
 </html>
