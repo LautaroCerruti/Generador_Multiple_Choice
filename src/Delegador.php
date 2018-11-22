@@ -60,7 +60,7 @@ class Delegador
         if ($dataCount == 0) {
             return false;
         }
-        $segmentLimit = int(floor($dataCount / $segmentCount));
+        $segmentLimit = intval(floor($dataCount / $segmentCount));
         $outputArray = array();
         while ($dataCount > $segmentLimit) {
             $outputArray[] = array_splice($array, 0, $segmentLimit);
