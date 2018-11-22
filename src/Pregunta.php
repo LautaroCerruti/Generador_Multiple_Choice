@@ -65,9 +65,9 @@ class Pregunta
 
     public function numerarOpciones($opciones)
     {
-        $contador = count($opciones) - 1;
+        $contador = count($opciones)-1;
         for ($contador; $contador > -1; $contador--) {
-            $opciones[$contador] = chr(ord('A') + $contador) . ") " . $opciones[$contador];
+            $opciones[$contador] = chr(ord('A')+$contador).") ".$opciones[$contador];
         }
         return $opciones;
     }
@@ -81,7 +81,7 @@ class Pregunta
                 $iterador++;
             }
             $opciones[$iterador] = $this->Correcta;
-            $this->LetraCorrecta = chr(ord('A') + $iterador);
+            $this->LetraCorrecta = chr(ord('A')+$iterador);
             $iterador++;
         }
         return $opciones;
@@ -93,7 +93,7 @@ class Pregunta
             $opciones[$iterador] = "Todas las anteriores";
             if (count($this->incorrectas) == 0) {
                 $this->Correcta = "Todas las anteriores";
-                $this->LetraCorrecta = chr(ord('A') + $iterador);
+                $this->LetraCorrecta = chr(ord('A')+$iterador);
             }
             $iterador++;
         }
@@ -110,7 +110,7 @@ class Pregunta
             $opciones[$iterador] = $texto;
             if ($this->cantcorrectas == 0) {
                 $this->Correcta = $texto;
-                $this->LetraCorrecta = chr(ord('A') + $iterador);
+                $this->LetraCorrecta = chr(ord('A')+$iterador);
             }
             $iterador++;
         }
@@ -152,7 +152,7 @@ class Pregunta
         $numeroCorrecta = 0;
         foreach ($opciones as $auxiliar) {
             if ($this->Correcta === $auxiliar) {
-                $this->LetraCorrecta = chr(ord('A') + $numeroCorrecta);
+                $this->LetraCorrecta = chr(ord('A')+$numeroCorrecta);
             }
             $numeroCorrecta++;
         }
@@ -171,8 +171,8 @@ class Pregunta
                 }
             }
         }
-        $a = chr(ord('A') + $numcorrectas[0]);
-        $b = chr(ord('A') + $numcorrectas[1]);
-        return $b . " y " . $a;
+        $a = chr(ord('A')+$numcorrectas[0]);
+        $b = chr(ord('A')+$numcorrectas[1]);
+        return $b." y ".$a;
     }
 }
