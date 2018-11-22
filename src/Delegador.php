@@ -17,8 +17,8 @@ class Delegador
         if (!file_exists('./PruebasGeneradas')) {
             mkdir('./PruebasGeneradas', 0777);
         }
-        if (!file_exists('./PruebasGeneradas/' . $Index)) {
-            mkdir('./PruebasGeneradas/' . $Index, 0777);
+        if (!file_exists('./PruebasGeneradas/'.$Index)) {
+            mkdir('./PruebasGeneradas/'.$Index, 0777);
         }
         $preguntas = Yaml::parse(file_get_contents($nombreArchivo));
         foreach ($preguntas["preguntas"] as $pregunta) {
@@ -47,7 +47,7 @@ class Delegador
     {
         $listaExamenes = array();
         for ($i = 0; $i < $this->cantTemas; $i++) {
-            $listaExamenes[] = new Examen($listaPreg[$i], ($i + 1), $this->Index);
+            $listaExamenes[] = new Examen($listaPreg[$i], ($i+1), $this->Index);
         }
         return $listaExamenes;
     }
