@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exam</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
+    <style>
+      .question {
+          border: 1px solid gray;
+          padding: 0.3em;
+      }
+      .number {
+          float: left;
+          margin-right: 0.5em;
+          font-weight: bold;
+      }
+      .options {
+          display: flex;
+          flex-direction: column;
+      }
+      .short {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 1em;
+      }
+      .questions {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 1em 1em;
+      }
+      .header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1em;
+      }
+      .description {
+          margin-bottom: 0.5em;
+          font-weight: bold;
+      }
+      body {
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <strong>Nombre y Apellido _____________________________________________ </strong>
+      <strong>Evaluación número</strong>
+      <strong>TEMA 1</strong>
+    </div>
+    <div class="questions">
+                        <div class='question'>
+        <div class='number'>1)______</div>
+        <div class='description'>¿Para una imagen de 500 x 500 pixeles con 180 colores diferentes guarado en distintos formatos, que archivo es el más espacio en disco ocupa?</div>
+        <div class='options short'>
+                    <div class='option'>A) imagen.jpg</div>
+                    <div class='option'>B) imagen.gif</div>
+                    <div class='option'>C) imagen.png</div>
+                    <div class='option'>D) imagen.bmp</div>
+                  </div>
+      </div>
+                </div>
+  </body>
+</html>

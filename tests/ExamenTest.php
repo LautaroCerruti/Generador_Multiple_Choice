@@ -14,6 +14,6 @@ class ExamenTest extends TestCase
         $Examen = new Examen($nom);
         $this->assertEquals($Delegador->preguntasDisponibles(),26);
         /*/
-        $this->assertEquals(1,1); //Esto esta porque no me gustaba que quede como risky...
+        $this->assertEquals(1, 1); //Esto esta porque no me gustaba que quede como risky...
     }
 }

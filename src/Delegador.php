@@ -18,21 +18,19 @@ class Delegador
         }
         $this->cantTemas = $cantTemas;
         $this->cantPreguntas = count($this->preguntas);
+        shuffle($this->preguntas);
         $listaPreg = $this->divisionTemas();
         $listaExamenes = $this->crearExamen($listaPreg);
     }
 
-
     protected function divisionTemas()
     {
         $listaPreg = array();
-        shuffle($listaPreg);
-        if ($this->cantTemas > $this->cantPreguntas){
-            $listaPreg = $this->array_divide($this->preguntas, $this->cantPreguntas);
+        if ($this->cantTemas > $this->cantPreguntas) {
+            $listaPreg = $this->arrayDivide($this->preguntas, $this->cantPreguntas);
             $this->cantTemas = $this->cantPreguntas;
-        }
-        else{
-        $listaPreg = $this->array_divide($this->preguntas, $this->cantTemas);
+        } else {
+            $listaPreg = $this->arrayDivide($this->preguntas, $this->cantTemas);
         }
         return $listaPreg;
     }
@@ -41,14 +39,13 @@ class Delegador
     {
         $listExamenes = array();
         /*foreach ($listaPreg as $Preg){
-            $listaExamenes[$i]=new Examen($Preg);
+        $listaExamenes[$i]=new Examen($Preg);
         }*/
-        for ($i = 0; $i<$this->cantTemas; $i++){
-            $listaExamenes[]=new Examen($listaPreg[$i]);
+        for ($i = 0; $i < $this->cantTemas; $i++) {
+            $listaExamenes[] = new Examen($listaPreg[$i],($i+1));
         }
         return $listaExamenes;
     }
-
 
     public function cantPreguntasDisponibles()
     {
@@ -60,16 +57,23 @@ class Delegador
         return $this->cantTemas;
     }
 
-    protected function array_divide($array, $segmentCount) {
+    protected function arrayDivide($array, $segmentCount)
+    {
         $dataCount = count($array);
-        if ($dataCount == 0) return false;
+        if ($dataCount == 0) {
+            return false;
+        }
+
         $segmentLimit = floor($dataCount / $segmentCount);
         $outputArray = array();
-        while($dataCount > $segmentLimit) {
-            $outputArray[] = array_splice($array,0,$segmentLimit);
+        while ($dataCount > $segmentLimit) {
+            $outputArray[] = array_splice($array, 0, $segmentLimit);
             $dataCount = count($array);
         }
-        if($dataCount > 0) $outputArray[] = $array;
+        if ($dataCount > 0) {
+            $outputArray[] = $array;
+        }
+
         return $outputArray;
     }
 }

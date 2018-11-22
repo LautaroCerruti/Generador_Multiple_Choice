@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exam</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
+    <style>
+      .question {
+          border: 1px solid gray;
+          padding: 0.3em;
+      }
+      .number {
+          float: left;
+          margin-right: 0.5em;
+          font-weight: bold;
+      }
+      .options {
+          display: flex;
+          flex-direction: column;
+      }
+      .short {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 1em;
+      }
+      .questions {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 1em 1em;
+      }
+      .header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1em;
+      }
+      .description {
+          margin-bottom: 0.5em;
+          font-weight: bold;
+      }
+      body {
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <strong>Nombre y Apellido _____________________________________________ </strong>
+      <strong>Evaluación número</strong>
+      <strong>TEMA 1</strong>
+    </div>
+    <div class="questions">
+                        <div class='question'>
+        <div class='number'>1)______</div>
+        <div class='description'>El formato PNG es superior al BMP porque</div>
+        <div class='options short'>
+                    <div class='option'>A) Permite archivos más pequeños con la misma calidad.</div>
+                    <div class='option'>B) Permite transparencias.</div>
+                    <div class='option'>C) Su compresión no reduce la calidad de imagen.</div>
+                    <div class='option'>D) Se puede usar en la web.</div>
+                    <div class='option'>E) Todas las anteriores</div>
+                    <div class='option'>F) Ninguna de las anteriores</div>
+                  </div>
+      </div>
+                </div>
+  </body>
+</html>
