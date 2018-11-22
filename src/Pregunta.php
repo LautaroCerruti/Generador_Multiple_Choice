@@ -63,6 +63,15 @@ class Pregunta
         return $this->Opciones;
     }
 
+    public function numerarOpciones($opciones)
+    {
+        $contador = count($opciones)-1;
+        for ($contador; $contador>-1; $contador--){
+            $opciones[$contador] = chr(ord('A') + $contador) . ") " . $opciones[$contador]; 
+        }
+        return $opciones;
+    }
+
     protected function dosCorrectas($iterador, $opciones)
     {
         if ($this->cantcorrectas == 2) {
@@ -134,7 +143,8 @@ class Pregunta
         if($this->cantcorrectas == 1){
             $this->unaCorrecta($opciones);
         }
-        return $opciones;
+
+        return $this->numerarOpciones($opciones);
     }
 
     protected function unaCorrecta($opciones){
