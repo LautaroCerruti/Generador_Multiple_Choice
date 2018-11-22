@@ -67,7 +67,7 @@ class Pregunta
     {
         $contador = count($opciones)-1;
         for ($contador; $contador > -1; $contador--) {
-            $opciones[$contador] = chr(ord('A')+$contador).") ".$opciones[$contador]; 
+            $opciones[$contador] = chr(ord('A')+$contador).") ".$opciones[$contador];
         }
         return $opciones;
     }
@@ -90,7 +90,7 @@ class Pregunta
     protected function noOcultarAnteriores($iterador, $opciones)
     {
         if ($this->ocultaranteriores === false) {
-        $opciones[$iterador] = "Todas las anteriores";
+            $opciones[$iterador] = "Todas las anteriores";
             if (count($this->incorrectas) == 0) {
                 $this->Correcta = "Todas las anteriores";
                 $this->LetraCorrecta = chr(ord('A')+$iterador);
@@ -138,7 +138,7 @@ class Pregunta
         $iterador = count($opciones);
 
         $opciones = $this->ocultarNingunaAnteriores($iterador, $opciones);
-        
+
         if ($this->cantcorrectas == 1) {
             $this->unaCorrecta($opciones);
         }
@@ -146,7 +146,8 @@ class Pregunta
         return $this->numerarOpciones($opciones);
     }
 
-    protected function unaCorrecta($opciones) {
+    protected function unaCorrecta($opciones)
+    {
         $this->Correcta = $this->correctas[0];
         $numeroCorrecta = 0;
         foreach ($opciones as $auxiliar) {

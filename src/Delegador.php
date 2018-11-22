@@ -8,16 +8,25 @@ class Delegador
 {
     protected $cantTemas;
     protected $cantPreguntas;
+    protected $Index;
     protected $preguntas = array();
 
-    public function __construct($nombreArchivo, $cantTemas)
+    public function __construct($nombreArchivo, $cantTemas, $Index)
     {
+        $this->Index = $Index;
+        if (!file_exists('./PruebasGeneradas')) {
+            mkdir('./PruebasGeneradas', 0777);
+        }
+        if (!file_exists('./PruebasGeneradas/'.$Index)) {
+            mkdir('./PruebasGeneradas/'.$Index, 0777);
+        }
         $preguntas = Yaml::parse(file_get_contents($nombreArchivo));
         foreach ($preguntas["preguntas"] as $pregunta) {
             array_push($this->preguntas, new Pregunta($pregunta));
         }
         $this->cantTemas = $cantTemas;
         $this->cantPreguntas = count($this->preguntas);
+        shuffle($this->preguntas);
         $listaPreg = $this->divisionTemas();
         $this->crearExamen($listaPreg);
     }
@@ -25,7 +34,6 @@ class Delegador
     protected function divisionTemas()
     {
         $listaPreg = array();
-        shuffle($listaPreg);
         if ($this->cantTemas > $this->cantPreguntas) {
             $listaPreg = $this->arrayDivide($this->preguntas, $this->cantPreguntas);
             $this->cantTemas = $this->cantPreguntas;
@@ -39,7 +47,7 @@ class Delegador
     {
         $listaExamenes = array();
         for ($i = 0; $i < $this->cantTemas; $i++) {
-            $listaExamenes[] = new Examen($listaPreg[$i]);
+            $listaExamenes[] = new Examen($listaPreg[$i], ($i+1), $this->Index);
         }
         return $listaExamenes;
     }
@@ -57,9 +65,6 @@ class Delegador
     protected function arrayDivide($array, $segmentCount)
     {
         $dataCount = count($array);
-        if ($dataCount == 0) {
-            return false;
-        }
         $segmentLimit = intval(floor($dataCount / $segmentCount));
         $outputArray = array();
         while ($dataCount > $segmentLimit) {
