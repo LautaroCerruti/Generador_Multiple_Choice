@@ -5,14 +5,13 @@ namespace Generador_Multiple_Choice;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 
-require_once './vendor/autoload.php';
-
 class Examen
 {
     protected $preguntas = array();
 
     public function __construct($preguntas, $Tema, $Index)
     {
+        require_once './vendor/autoload.php';
         $this->preguntas = $preguntas;
         $loader = new Twig_Loader_Filesystem('./templates');
         $twig = new Twig_Environment($loader);
