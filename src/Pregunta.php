@@ -164,7 +164,7 @@ class Pregunta
         $x = 0;
         $iterador2 = 0;
         $numcorrectas = array();
-        $countOpcionesaBuscar = count($opcionesABuscar)
+        $countOpcionesaBuscar = count($opcionesABuscar);
         for ($iterador2 = 0; $iterador2 < $cantOpciones; $iterador2++) { //este for es para encontrar y guardar en un array los num de las opciones correctas
             for ($i = 0; $i < $countOpcionesaBuscar; $i++) {
                 if ($opciones[$iterador2] === $opcionesABuscar[$i]) {
