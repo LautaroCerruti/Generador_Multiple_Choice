@@ -14,8 +14,11 @@ class Delegador
     public function __construct($nombreArchivo, $cantTemas, $Index)
     {
         $this->Index= $Index;
-        if(!file_exists("./PruebasGeneradas/" . $Index)){
-        mkdir ("./PruebasGeneradas/" . $Index, 0777);
+        if(!file_exists('./PruebasGeneradas')){
+            mkdir ('./PruebasGeneradas', 0777);
+            }
+        if(!file_exists('./PruebasGeneradas/' . $Index)){
+        mkdir ('./PruebasGeneradas/' . $Index, 0777);
         }
         $preguntas = Yaml::parse(file_get_contents($nombreArchivo));
         foreach ($preguntas["preguntas"] as $pregunta) {
