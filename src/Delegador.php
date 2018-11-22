@@ -28,7 +28,7 @@ class Delegador
         $this->cantPreguntas = count($this->preguntas);
         shuffle($this->preguntas);
         $listaPreg = $this->divisionTemas();
-        $listaExamenes = $this->crearExamen($listaPreg);
+        $this->crearExamen($listaPreg);
     }
 
     protected function divisionTemas()
@@ -46,9 +46,6 @@ class Delegador
     public function crearExamen($listaPreg)
     {
         $listExamenes = array();
-        /*foreach ($listaPreg as $Preg){
-        $listaExamenes[$i]=new Examen($Preg);
-        }*/
         for ($i = 0; $i < $this->cantTemas; $i++) {
             $listaExamenes[] = new Examen($listaPreg[$i],($i+1),$this->Index);
         }
@@ -68,7 +65,7 @@ class Delegador
     protected function arrayDivide($array, $segmentCount)
     {
         $dataCount = count($array);
-        $segmentLimit = floor($dataCount / $segmentCount);
+        $segmentLimit = intval(floor($dataCount / $segmentCount));
         $outputArray = array();
         while ($dataCount > $segmentLimit) {
             $outputArray[] = array_splice($array, 0, $segmentLimit);
@@ -77,7 +74,6 @@ class Delegador
         if ($dataCount > 0) {
             $outputArray[] = $array;
         }
-
         return $outputArray;
     }
 }
