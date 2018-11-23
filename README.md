@@ -18,4 +18,5 @@ Para generar el/los exámenes, se utilizará el archivo "Generar.php", al cuál 
 Dentro de los errores mas frecuentes que ocurrieron, se encuentra el problema de la aleatoriedad en los test de Travis.
 Para comprobar que las opciones se randomizaron (esto para que no queden en el mismo lugar en el cuál se ingresaron), se compara la primera opción que se leyó con la primera opción del array de opciones. El problema aqui, es que existe la posibilidad de que luego de que las opciones hayan sido randomizadas, estas queden en el mismo lugar, o al menos la primera leída quede en el primer lugar del array.
 Esto provoca un falso negativo en Travis CI, por lo que hubo ocaciones en las que debimos correr mas de una vez este checkeo.
+
 Errores producidos por el mal uso del programa, como ingresar más temas que preguntas, fueron considerados y cubiertos.
